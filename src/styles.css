@@ -104,3 +104,8 @@ Button:hover {
   height: 25px;
   font-family: "Poppins", sans-serif;
 }
+
+#open-source {
+  font-size: 10px;
+  text-align: center;
+}
