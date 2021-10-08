@@ -23,6 +23,7 @@ function showWeather(response) {
   let wind = document.querySelector("#windSpeed");
   let windSpeed = Math.round(response.data.wind.speed);
   wind.innerHTML = `${windSpeed}km/h`;
+  celciusTemperature = response.data.main.temp;
   let weatherIcon = document.querySelector(".currentEmoji");
   weatherIcon.setAttribute(
     "src",
@@ -43,24 +44,31 @@ function submitCity(event) {
   search(cityInput.value);
 }
 
-function celConvert() {
-  let currentTemp = document.querySelector(".currentTemp");
-  currentTemp.innerHTML = "25°";
+function celConvert(event) {
+  event.preventDefault();
+  celButton.classList.add("active");
+  fahrenButton.classList.remove("active");
+  let temperatureElement = document.querySelector(".currentTemp");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 
-function fahrenConvert() {
-  let currentTemp = document.querySelector(".currentTemp");
-  currentTemp.innerHTML = "77°";
+function fahrenConvert(event) {
+  event.preventDefault();
+  celButton.classList.remove("active");
+  fahrenButton.classList.add("active");
+  let temperatureElement = document.querySelector(".currentTemp");
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
 currentTime();
 search("Brisbane");
-var result;
+let celciusTemperature = null;
+let fahrenButton = document.querySelector(".fahrenSymbol");
+fahrenButton.addEventListener("click", fahrenConvert);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submitCity);
 
 let celButton = document.querySelector(".celSymbol");
-let fahrenButton = document.querySelector(".fahrenSymbol");
 celButton.addEventListener("click", celConvert);
-fahrenButton.addEventListener("click", fahrenConvert);
