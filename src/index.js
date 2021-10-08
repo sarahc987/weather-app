@@ -11,22 +11,6 @@ function currentTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-function retrieveLocation(position) {
-  let apiKey = "3def0561d3e06af25dd72c96c23230ff";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showWeather);
-}
-
-function getLocation() {
-  result = document.querySelector("#showLocationButton");
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(retrieveLocation, error);
-  } else {
-    alert("Sorry, your location could not be found");
-  }
-}
 function showWeather(response) {
   let cityElement = document.querySelector(".currentCity");
   cityElement.innerHTML = response.data.name;
@@ -74,7 +58,7 @@ search("Brisbane");
 var result;
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", submitCity);
 
 let celButton = document.querySelector(".celSymbol");
 let fahrenButton = document.querySelector(".fahrenSymbol");
