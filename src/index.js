@@ -12,6 +12,8 @@ function currentTime(timestamp) {
 }
 
 function showWeather(response) {
+  let currentWeather = document.querySelector(".currentWeather");
+  currentWeather.innerHTML = response.data.weather[0].description;
   let cityElement = document.querySelector(".currentCity");
   cityElement.innerHTML = response.data.name;
   let currentTemp = document.querySelector(".currentTemp");

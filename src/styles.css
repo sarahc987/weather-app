@@ -75,6 +75,13 @@ Button:hover {
 .currentEmoji {
   width: 50px;
 }
+
+.currentWeather {
+  font-size: 15px;
+}
+.currentWeather:first-letter {
+  text-transform: capitalize;
+}
 .futureEmoji {
   position: relative;
   left: 6px;
