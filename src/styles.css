@@ -72,6 +72,9 @@ Button:hover {
 .forecastTitle {
   font-size: 20px;
 }
+.currentEmoji {
+  width: 50px;
+}
 .futureEmoji {
   position: relative;
   left: 6px;
