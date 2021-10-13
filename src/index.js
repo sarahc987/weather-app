@@ -32,6 +32,7 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
+  displayForecast();
 }
 
 function search(city) {
@@ -61,6 +62,28 @@ function fahrenConvert(event) {
   let temperatureElement = document.querySelector(".currentTemp");
   let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="card col-2 forecastCard">
+  <div class="card-body">
+    <h5 class="card-title dayTitle">${day}</h5>
+    <p class="card-text"><i class="fas fa-sun  fa-2x futureEmoji"></i><div class="minMax">
+       <span class="maxTemp"> 22 </span>| <span class="minTemp">28</span>
+    </div></p>
+  </div>
+</div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 currentTime();
