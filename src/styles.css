@@ -83,8 +83,9 @@ Button:hover {
   text-transform: capitalize;
 }
 .futureEmoji {
-  position: relative;
-  left: 6px;
+  display: block;
+  text-align: center;
+  width: 45px;
 }
 .minMax {
   font-size: 11px;
