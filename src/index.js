@@ -38,6 +38,9 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
+  let dateElement = document.querySelector("#current-time");
+  dateElement.innerHTML = currentTime(response.data.dt * 1000);
+
   getForecast(response.data.coord);
 }
 
@@ -90,7 +93,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-currentTime();
 search("Brisbane");
 
 let searchForm = document.querySelector("#search-form");

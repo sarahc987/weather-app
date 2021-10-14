@@ -64,6 +64,9 @@ Button:hover {
 .currentEmoji {
   width: 75px;
 }
+#current-time {
+  padding-top: 17px;
+}
 
 .currentWeather {
   font-size: 15px;
