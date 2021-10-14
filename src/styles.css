@@ -62,7 +62,7 @@ Button:hover {
   font-size: 20px;
 }
 .currentEmoji {
-  width: 50px;
+  width: 75px;
 }
 
 .currentWeather {
@@ -73,8 +73,9 @@ Button:hover {
 }
 .futureEmoji {
   display: block;
-  text-align: center;
-  width: 45px;
+  width: 75px;
+  margin: 0 auto;
+  padding: 0;
 }
 .minMax {
   font-size: 10px;
@@ -87,13 +88,17 @@ Button:hover {
 }
 .forecastCard {
   margin: 0 8px;
-  border: solid 1px black;
-  background-color: #f8fafc;
+  border: solid 1px rgb(203, 214, 224);
+  background: rgb(227, 237, 245);
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
 }
+.card-body {
+  padding: 0;
+  padding-top: 10px;
+}
 .dayTitle {
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 
 #open-source {

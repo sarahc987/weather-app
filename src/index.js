@@ -71,9 +71,9 @@ function displayForecast(response) {
         `<div class="card col-2 forecastCard">
   <div class="card-body">
     <h5 class="card-title dayTitle">${formatDay(forecastDay.dt)}</h5>
-    <p class="card-text"><img src="http://openweathermap.org/img/wn/${
+    <p class="card-text"><div><img src="http://openweathermap.org/img/wn/${
       forecastDay.weather[0].icon
-    }@2x.png" class="futureEmoji" /><div class="minMax">
+    }@2x.png" class="futureEmoji" /></div><div class="minMax">
        <span class="maxTemp"> ${Math.round(
          forecastDay.temp.max
        )}° </span>| <span class="minTemp">${Math.round(
