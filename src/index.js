@@ -53,23 +53,6 @@ function submitCity(event) {
   search(cityInput.value);
 }
 
-function celConvert(event) {
-  event.preventDefault();
-  celButton.classList.add("active");
-  fahrenButton.classList.remove("active");
-  let temperatureElement = document.querySelector(".currentTemp");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-
-function fahrenConvert(event) {
-  event.preventDefault();
-  celButton.classList.remove("active");
-  fahrenButton.classList.add("active");
-  let temperatureElement = document.querySelector(".currentTemp");
-  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -93,9 +76,9 @@ function displayForecast(response) {
     }@2x.png" class="futureEmoji" /><div class="minMax">
        <span class="maxTemp"> ${Math.round(
          forecastDay.temp.max
-       )} </span>| <span class="minTemp">${Math.round(
+       )}° </span>| <span class="minTemp">${Math.round(
           forecastDay.temp.min
-        )}</span>
+        )}°</span>
     </div></p>
   </div>
 </div>
@@ -109,12 +92,6 @@ function displayForecast(response) {
 
 currentTime();
 search("Brisbane");
-let celciusTemperature = null;
-let fahrenButton = document.querySelector(".fahrenSymbol");
-fahrenButton.addEventListener("click", fahrenConvert);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submitCity);
-
-let celButton = document.querySelector(".celSymbol");
-celButton.addEventListener("click", celConvert);
